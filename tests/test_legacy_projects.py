@@ -11,11 +11,11 @@ if sys.platform=='win32':
 @unittest.skipUnless(sys.platform=='win32','The application is Windows-only')
 class LegacyProjectTests(unittest.TestCase):
  def test_missing_settings_uses_english_without_creating_file(self):
-  with tempfile.TemporaryDirectory() as tmp,patch.object(core,'APP',Path(tmp)):
+  with tempfile.TemporaryDirectory() as tmp,patch.object(core,'APP',Path(tmp).resolve()):
    self.assertEqual(core.config()['ui_language'],'en');self.assertEqual(core.config()['game'],'')
    self.assertFalse((Path(tmp)/'settings.json').exists())
  def test_legacy_and_current_optional_fields(self):
-  with tempfile.TemporaryDirectory() as tmp,patch.object(core,'APP',Path(tmp)):
+  with tempfile.TemporaryDirectory() as tmp,patch.object(core,'APP',Path(tmp).resolve()):
    root=Path(tmp)
    for schema in (None,1,2,3,4,5,6):
     folder=root/'Projects'/('old project '+str(schema));folder.mkdir(parents=True)
@@ -34,7 +34,7 @@ class LegacyProjectTests(unittest.TestCase):
     for key,value in data.items():self.assertEqual(loaded[key],value)
     self.assertEqual(path.read_bytes(),before);self.assertEqual(audio.read_bytes(),pcm)
  def test_missing_audio_reports_error_without_rewriting_manifest(self):
-  with tempfile.TemporaryDirectory() as tmp,patch.object(core,'APP',Path(tmp)):
+  with tempfile.TemporaryDirectory() as tmp,patch.object(core,'APP',Path(tmp).resolve()):
    path=Path(tmp)/'project.json';path.write_text(json.dumps({'bank':'BTLCV_0070_00_US','replacements':{'S1':str(Path(tmp)/'missing.wav')}}));before=path.read_bytes()
    owner=SimpleNamespace(busy=False,banks=['BTLCV_0070_00_US'],load_bank=Mock(),fail=Mock())
    app.Studio.open_project_path(owner,path);owner.fail.assert_called_once();owner.load_bank.assert_not_called();self.assertEqual(before,path.read_bytes())
