@@ -1,10 +1,20 @@
+![Sparking Voice Studio — Limit Breaker Team](docs/assets/sparking-voice-studio-banner.png)
+
 # Sparking Zero Voice Studio
+
+Windows desktop editor for DRAGON BALL: Sparking! ZERO voice banks, with Custom and Replacer export workflows.
+
+**[Download for Windows](https://github.com/vini2227/SPARKING-VOICE-STUDIO/releases/latest)** · [Release notes](https://github.com/vini2227/SPARKING-VOICE-STUDIO/releases) · [Watch on YouTube](https://www.youtube.com/watch?v=xJy1R0_-6Aw)
 
 **User guides / Guias / Idiomas:**
 
 [English](Readme/README_en.md) · [Português (Brasil)](Readme/README_pt.md) · [Español (España)](Readme/README_es.md) · [Español (Latinoamérica)](Readme/README_es-419.md) · [Français](Readme/README_fr.md) · [Italiano](Readme/README_it.md) · [日本語](Readme/README_ja.md) · [Deutsch](Readme/README_de.md) · [Русский](Readme/README_ru.md) · [Polski](Readme/README_pl.md) · [العربية](Readme/README_ar.md) · [简体中文](Readme/README_zh-Hans.md) · [繁體中文](Readme/README_zh-Hant.md) · [한국어](Readme/README_ko.md) · [ไทย](Readme/README_th.md) · [Bahasa Indonesia](Readme/README_id.md)
 
-Windows desktop editor for DRAGON BALL: Sparking! ZERO voice banks, with Custom and Replacer export workflows.
+## Video
+
+<a href="https://www.youtube.com/watch?v=xJy1R0_-6Aw"><img src="https://img.youtube.com/vi/xJy1R0_-6Aw/hqdefault.jpg" alt="Watch the Sparking Voice Studio video on YouTube" width="640"></a>
+
+[▶ Watch the video on YouTube](https://www.youtube.com/watch?v=xJy1R0_-6Aw)
 
 ## Features
 
