@@ -1,5 +1,9 @@
 # Sparking Zero Voice Studio
 
+**User guides / Guias / Idiomas:**
+
+[English](Readme/README_en.md) · [Português (Brasil)](Readme/README_pt.md) · [Español (España)](Readme/README_es.md) · [Español (Latinoamérica)](Readme/README_es-419.md) · [Français](Readme/README_fr.md) · [Italiano](Readme/README_it.md) · [日本語](Readme/README_ja.md) · [Deutsch](Readme/README_de.md) · [Русский](Readme/README_ru.md) · [Polski](Readme/README_pl.md) · [العربية](Readme/README_ar.md) · [简体中文](Readme/README_zh-Hans.md) · [繁體中文](Readme/README_zh-Hant.md) · [한국어](Readme/README_ko.md) · [ไทย](Readme/README_th.md) · [Bahasa Indonesia](Readme/README_id.md)
+
 Windows desktop editor for DRAGON BALL: Sparking! ZERO voice banks, with Custom and Replacer export workflows.
 
 ## Features
