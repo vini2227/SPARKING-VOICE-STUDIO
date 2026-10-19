@@ -1,0 +1,939 @@
+[
+  {
+    "cue": "0000_20_0702",
+    "ids": {
+      "US": [
+        10702
+      ],
+      "JP": [
+        10702
+      ]
+    },
+    "owners": [
+      "0031_02"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0031/02/MS_0031_02_actULT_SRPHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0000_21_0688",
+    "ids": {
+      "US": [
+        10688
+      ],
+      "JP": [
+        10688
+      ]
+    },
+    "owners": [
+      "0032_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0032/01/MS_0032_01_05_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0000_21_0695",
+    "ids": {
+      "US": [
+        10695
+      ],
+      "JP": [
+        10695
+      ]
+    },
+    "owners": [
+      "0032_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0032/01/MS_0032_01_05_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0000_43_0685",
+    "ids": {
+      "US": [
+        10685
+      ],
+      "JP": [
+        10685
+      ]
+    },
+    "owners": [
+      "0020_63"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0020/63/MS_0020_63_04_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0002_30_0691",
+    "ids": {
+      "US": [
+        10691
+      ],
+      "JP": [
+        10691
+      ]
+    },
+    "owners": [
+      "3280_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3280/00/MS_3280_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0002_30_0693",
+    "ids": {
+      "US": [
+        10693
+      ],
+      "JP": [
+        10693
+      ]
+    },
+    "owners": [
+      "3280_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3280/00/MS_3280_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0020_63_0692",
+    "ids": {
+      "US": [
+        10692
+      ],
+      "JP": [
+        10692
+      ]
+    },
+    "owners": [
+      "0000_43"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0000/43/MS_0000_43_09_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0020_63_0700",
+    "ids": {
+      "US": [
+        10700
+      ],
+      "JP": [
+        10700
+      ]
+    },
+    "owners": [
+      "0000_43"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0000/43/MS_0000_43_09_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0032_10_0686",
+    "ids": {
+      "US": [
+        10000000
+      ],
+      "JP": [
+        10000000
+      ]
+    },
+    "owners": [
+      "0130_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0130/00/MS_0130_00_04_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0032_20_0299",
+    "ids": {
+      "US": [
+        10299
+      ],
+      "JP": [
+        10299
+      ]
+    },
+    "owners": [
+      "0172_00",
+      "0172_10"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0172/00/MS_0172_00_actFRMC2R.uasset"
+    ]
+  },
+  {
+    "cue": "0032_20_0692",
+    "ids": {
+      "US": [
+        10692
+      ],
+      "JP": [
+        10692
+      ]
+    },
+    "owners": [
+      "0040_10"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0040/10/MS_0040_10_03_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0032_20_0695",
+    "ids": {
+      "US": [
+        10695
+      ],
+      "JP": [
+        10695
+      ]
+    },
+    "owners": [
+      "0040_10"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0040/10/MS_0040_10_03_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0040_10_0696",
+    "ids": {
+      "US": [
+        10696
+      ],
+      "JP": [
+        10696
+      ]
+    },
+    "owners": [
+      "0120_02"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0120/02/MS_0120_02_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0040_10_0697",
+    "ids": {
+      "US": [
+        10697
+      ],
+      "JP": [
+        10697
+      ]
+    },
+    "owners": [
+      "0120_02"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0120/02/MS_0120_02_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0070_00_0694",
+    "ids": {
+      "US": [
+        10694
+      ],
+      "JP": [
+        10694
+      ]
+    },
+    "owners": [
+      "0190_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0190/00/MS_0190_00_actULTHD.uasset"
+    ]
+  },
+  {
+    "cue": "0082_01_0682",
+    "ids": {
+      "US": [
+        10682
+      ],
+      "JP": [
+        10682
+      ]
+    },
+    "owners": [
+      "0090_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0090/01/MS_0090_01_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0082_01_0683",
+    "ids": {
+      "US": [
+        10683
+      ],
+      "JP": [
+        10683
+      ]
+    },
+    "owners": [
+      "0090_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0090/01/MS_0090_01_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0082_01_0685",
+    "ids": {
+      "US": [
+        10685
+      ],
+      "JP": [
+        10685
+      ]
+    },
+    "owners": [
+      "0090_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0090/01/MS_0090_01_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0090_00_0686",
+    "ids": {
+      "US": [
+        10686
+      ],
+      "JP": [
+        10686
+      ]
+    },
+    "owners": [
+      "0032_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0032/01/MS_0032_01_05_actULT2HD1P.uasset",
+      "SS/InGameComp/Equipment/0032/01/MS_0032_01_actULT_SRPHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0090_01_0696",
+    "ids": {
+      "US": [
+        10696
+      ],
+      "JP": [
+        10696
+      ]
+    },
+    "owners": [
+      "0032_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0032/01/MS_0032_01_05_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0120_02_0756",
+    "ids": {
+      "US": [
+        10756
+      ],
+      "JP": [
+        10756
+      ]
+    },
+    "owners": [
+      "0172_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0172/00/MS_0172_00_actFRMCA2R.uasset"
+    ]
+  },
+  {
+    "cue": "0130_00_0700",
+    "ids": {
+      "US": [
+        10700
+      ],
+      "JP": [
+        10700
+      ]
+    },
+    "owners": [
+      "0032_10"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0032/10/MS_0032_10_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0170_00_0695",
+    "ids": {
+      "US": [
+        10695
+      ],
+      "JP": [
+        10695
+      ]
+    },
+    "owners": [
+      "0180_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0180/00/MS_0180_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0230_00_0704",
+    "ids": {
+      "US": [
+        10704
+      ],
+      "JP": [
+        10704
+      ]
+    },
+    "owners": [
+      "3280_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3280/00/MS_3280_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0400_00_0697",
+    "ids": {
+      "US": [
+        10697
+      ],
+      "JP": [
+        10697
+      ]
+    },
+    "owners": [
+      "0410_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0410/00/MS_0410_00_actULTHD.uasset"
+    ]
+  },
+  {
+    "cue": "0400_00_0702",
+    "ids": {
+      "US": [
+        10702
+      ],
+      "JP": [
+        10702
+      ]
+    },
+    "owners": [
+      "0410_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0410/00/MS_0410_00_actULTHD.uasset"
+    ]
+  },
+  {
+    "cue": "0410_00_0208",
+    "ids": {
+      "US": [
+        10208
+      ],
+      "JP": [
+        10208
+      ]
+    },
+    "owners": [
+      "0400_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0400/00/MS_0400_00_actULTHD.uasset"
+    ]
+  },
+  {
+    "cue": "0410_00_0702",
+    "ids": {
+      "US": [
+        10702
+      ],
+      "JP": [
+        10702
+      ]
+    },
+    "owners": [
+      "0400_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0400/00/MS_0400_00_actULTHD.uasset"
+    ]
+  },
+  {
+    "cue": "0450_00_0695",
+    "ids": {
+      "US": [
+        10695
+      ],
+      "JP": [
+        10695
+      ]
+    },
+    "owners": [
+      "3290_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3290/00/MS_3290_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0450_00_0706",
+    "ids": {
+      "US": [
+        10706
+      ],
+      "JP": [
+        10706
+      ]
+    },
+    "owners": [
+      "3290_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3290/00/MS_3290_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0687",
+    "ids": {
+      "US": [
+        10687
+      ],
+      "JP": [
+        10687
+      ]
+    },
+    "owners": [
+      "0050_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0050/00/MS_0050_00_06_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0688",
+    "ids": {
+      "US": [
+        10688
+      ],
+      "JP": [
+        10688
+      ]
+    },
+    "owners": [
+      "0050_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0050/00/MS_0050_00_06_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0690",
+    "ids": {
+      "US": [
+        10690
+      ],
+      "JP": [
+        10690
+      ]
+    },
+    "owners": [
+      "0050_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0050/00/MS_0050_00_06_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0693",
+    "ids": {
+      "US": [
+        10693
+      ],
+      "JP": [
+        10693
+      ]
+    },
+    "owners": [
+      "0050_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0050/00/MS_0050_00_06_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0702",
+    "ids": {
+      "US": [
+        10702
+      ],
+      "JP": [
+        10702
+      ]
+    },
+    "owners": [
+      "0450_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0450/00/MS_0450_00_actULT_SRPHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0705",
+    "ids": {
+      "US": [
+        10705
+      ],
+      "JP": [
+        10705
+      ]
+    },
+    "owners": [
+      "0450_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0450/00/MS_0450_00_actULT_SRPHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0460_00_0905",
+    "ids": {
+      "US": [
+        10905
+      ],
+      "JP": [
+        10905
+      ]
+    },
+    "owners": [
+      "0450_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0450/00/MS_0450_00_actULT_SRPHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0780_00_0686",
+    "ids": {
+      "US": [
+        10686
+      ],
+      "JP": [
+        10686
+      ]
+    },
+    "owners": [
+      "0790_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0790/00/MS_0790_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0780_00_0687",
+    "ids": {
+      "US": [
+        10687
+      ],
+      "JP": [
+        10687
+      ]
+    },
+    "owners": [
+      "0790_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0790/00/MS_0790_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0800_00_0903",
+    "ids": {
+      "US": [
+        10903
+      ],
+      "JP": [
+        10903
+      ]
+    },
+    "owners": [
+      "0810_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0810/00/MS_0810_00_actULTSD2.uasset"
+    ]
+  },
+  {
+    "cue": "0900_02_0684",
+    "ids": {
+      "US": [
+        10684
+      ],
+      "JP": [
+        10684
+      ]
+    },
+    "owners": [
+      "0912_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0912/00/MS_0912_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0900_02_0685",
+    "ids": {
+      "US": [
+        10685
+      ],
+      "JP": [
+        10685
+      ]
+    },
+    "owners": [
+      "0912_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0912/00/MS_0912_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0900_02_0687",
+    "ids": {
+      "US": [
+        10687
+      ],
+      "JP": [
+        10687
+      ]
+    },
+    "owners": [
+      "0912_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0912/00/MS_0912_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "0912_00_0685",
+    "ids": {
+      "US": [
+        10685
+      ],
+      "JP": [
+        10685
+      ]
+    },
+    "owners": [
+      "0900_02"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0900/02/MS_0900_02_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "1321_00_0705",
+    "ids": {
+      "US": [
+        10705
+      ],
+      "JP": [
+        10705
+      ]
+    },
+    "owners": [
+      "1341_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/1341/00/MS_1341_00_actULTSD2.uasset"
+    ]
+  },
+  {
+    "cue": "1321_00_0706",
+    "ids": {
+      "US": [
+        10706
+      ],
+      "JP": [
+        10706
+      ]
+    },
+    "owners": [
+      "1341_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/1341/00/MS_1341_00_actULTSD2.uasset"
+    ]
+  },
+  {
+    "cue": "1321_00_0715",
+    "ids": {
+      "US": [
+        10715
+      ],
+      "JP": [
+        10715
+      ]
+    },
+    "owners": [
+      "1331_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/1331/00/MS_1331_00_actULTSD2.uasset"
+    ]
+  },
+  {
+    "cue": "1321_00_0716",
+    "ids": {
+      "US": [
+        10716
+      ],
+      "JP": [
+        10716
+      ]
+    },
+    "owners": [
+      "1331_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/1331/00/MS_1331_00_actULTSD2.uasset"
+    ]
+  },
+  {
+    "cue": "3030_00_0700",
+    "ids": {
+      "US": [
+        10700
+      ],
+      "JP": [
+        10700
+      ]
+    },
+    "owners": [
+      "3020_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3020/00/MS_3020_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "3030_00_0703",
+    "ids": {
+      "US": [
+        10703
+      ],
+      "JP": [
+        10703
+      ]
+    },
+    "owners": [
+      "3020_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3020/00/MS_3020_00_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "3270_01_0685",
+    "ids": {
+      "US": [
+        10685
+      ],
+      "JP": [
+        10685
+      ]
+    },
+    "owners": [
+      "3280_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3280/01/MS_3280_01_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "3270_01_0687",
+    "ids": {
+      "US": [
+        10687
+      ],
+      "JP": [
+        10687
+      ]
+    },
+    "owners": [
+      "3280_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3280/01/MS_3280_01_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "3270_01_0691",
+    "ids": {
+      "US": [
+        10691
+      ],
+      "JP": [
+        10691
+      ]
+    },
+    "owners": [
+      "3280_01"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/3280/01/MS_3280_01_actULTHD1P.uasset"
+    ]
+  },
+  {
+    "cue": "3290_00_0682",
+    "ids": {
+      "US": [
+        10682
+      ],
+      "JP": [
+        10682
+      ]
+    },
+    "owners": [
+      "0450_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0450/00/MS_0450_00_01_actULT2HD1P.uasset"
+    ]
+  },
+  {
+    "cue": "3290_00_0693",
+    "ids": {
+      "US": [
+        10693
+      ],
+      "JP": [
+        10693
+      ]
+    },
+    "owners": [
+      "0450_00"
+    ],
+    "sequences": [
+      "SS/InGameComp/Equipment/0450/00/MS_0450_00_01_actULT2HD1P.uasset"
+    ]
+  }
+]

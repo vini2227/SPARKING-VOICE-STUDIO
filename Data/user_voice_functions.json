@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "source": "Explicit user mapping supplied on 2026-10-07; not inferred from game assets",
+  "only_unidentified": true,
+  "rules": [
+    {
+      "key": "defeat",
+      "label": "Fala de derrota",
+      "domain": "character_cue",
+      "min": 150,
+      "max": 160,
+      "description": "Fala usada quando o personagem perde uma luta."
+    },
+    {
+      "key": "sparking",
+      "label": "Entrada no modo Sparking",
+      "domain": "character_cue",
+      "ids": [
+        346,
+        347
+      ],
+      "description": "Voz de ativação do modo Sparking."
+    },
+    {
+      "key": "guard_break",
+      "label": "Reação à quebra de defesa",
+      "domain": "character_cue",
+      "ids": [
+        756
+      ],
+      "description": "Voz associada à quebra de defesa."
+    },
+    {
+      "key": "damage",
+      "label": "Reação ao receber dano",
+      "domain": "character_cue",
+      "ids": [
+        760
+      ],
+      "description": "Voz de reação ao dano recebido pelo personagem."
+    },
+    {
+      "key": "unknown_emote",
+      "label": "Emote — tipo não identificado",
+      "domain": "character_cue",
+      "min": 1200,
+      "max": 1299,
+      "description": "A função é um emote; o gesto ou tipo específico ainda não foi identificado."
+    },
+    {
+      "key": "menu_selection",
+      "label": "Seleção no menu",
+      "domain": "full_cue_id",
+      "ids": [
+        8880000
+      ],
+      "description": "Voz usada na seleção no menu."
+    },
+    {
+      "key": "menu_shared",
+      "label": "Interação compartilhada de menu",
+      "domain": "full_cue_id",
+      "min": 8800000,
+      "max": 8899999,
+      "exclude": [
+        8880000
+      ],
+      "description": "Fala de interação compartilhada no menu. O contexto específico depende da fala."
+    },
+    {
+      "key": "story_attacks_11106",
+      "label": "Ataques / habilidades do modo história",
+      "domain": "full_cue_id",
+      "min": 1110600,
+      "max": 1110699,
+      "description": "Voz de ataque ou habilidade do modo história. Esta classificação não determina o nome do golpe ou da habilidade."
+    },
+    {
+      "key": "story_attacks_2210",
+      "label": "Ataques / habilidades do modo história",
+      "domain": "full_cue_id",
+      "min": 2210000,
+      "max": 2210999,
+      "description": "Voz de ataque ou habilidade do modo história. Esta classificação não determina o nome do golpe ou da habilidade."
+    },
+    {
+      "key": "empty_voice",
+      "label": "Voz vazia",
+      "domain": "character_cue",
+      "ids": [
+        0
+      ],
+      "description": "Entrada classificada como voz vazia no mapeamento manual."
+    },
+    {
+      "key": "victory_101",
+      "label": "Fala de vitória",
+      "domain": "full_cue_id",
+      "min": 10100,
+      "max": 10199,
+      "only_if_no_prior_rule": true,
+      "description": "Fala usada após uma vitória. O contexto ou adversário específico não é definido por esta faixa de Cue IDs."
+    },
+    {
+      "key": "story_skills_1106",
+      "label": "Habilidades do modo história",
+      "domain": "full_cue_id",
+      "min": 110600,
+      "max": 110699,
+      "only_if_no_prior_rule": true,
+      "description": "Voz de habilidade do modo história. Esta classificação não determina o nome da habilidade."
+    },
+    {
+      "key": "other_character_attacks_107",
+      "label": "Ataque — vozes de dois personagens",
+      "domain": "full_cue_id",
+      "min": 10700,
+      "max": 10749,
+      "only_if_no_prior_rule": true,
+      "description": "Áudio de ataque que mistura a voz deste personagem com a de outro. Esta faixa não determina quem é o outro personagem."
+    },
+    {
+      "key": "unused_transformations_104",
+      "label": "Transformação não utilizada",
+      "domain": "full_cue_id",
+      "min": 10400,
+      "max": 10499,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de transformação não utilizada, conforme o mapeamento manual. O nome da transformação não é determinado por esta faixa."
+    },
+    {
+      "key": "unused_skills_105",
+      "label": "Habilidade não utilizada",
+      "domain": "full_cue_id",
+      "min": 10500,
+      "max": 10599,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de habilidade não utilizada, conforme o mapeamento manual. O nome da habilidade não é determinado por esta faixa."
+    },
+    {
+      "key": "unknown_interactions_100",
+      "label": "Interação",
+      "domain": "full_cue_id",
+      "min": 10000,
+      "max": 10099,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Fala de interação. Esta faixa não determina o interlocutor nem a situação específica."
+    },
+    {
+      "key": "empty_audio_500",
+      "label": "Áudio vazio",
+      "domain": "full_cue_id",
+      "min": 50000,
+      "max": 50099,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Entrada classificada como áudio vazio no mapeamento manual."
+    },
+    {
+      "key": "damage_10750",
+      "label": "Reação ao receber dano",
+      "domain": "full_cue_id",
+      "min": 10750,
+      "max": 10760,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de reação ao dano recebido pelo personagem."
+    },
+    {
+      "key": "unused_skills_106",
+      "label": "Habilidade não utilizada",
+      "domain": "full_cue_id",
+      "min": 10600,
+      "max": 10699,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de habilidade não utilizada, conforme o mapeamento manual. O nome da habilidade não é determinado por esta faixa."
+    },
+    {
+      "key": "empty_audio_9999999",
+      "label": "Áudio vazio",
+      "domain": "full_cue_id",
+      "ids": [
+        9999999
+      ],
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Entrada classificada como áudio vazio no mapeamento manual."
+    },
+    {
+      "key": "story_attacks_10106",
+      "label": "Ataques / habilidades do modo história",
+      "domain": "full_cue_id",
+      "min": 1010600,
+      "max": 1010699,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de ataque ou habilidade do modo história. Esta classificação não determina o nome do golpe ou da habilidade."
+    },
+    {
+      "key": "change_109",
+      "label": "Troca",
+      "domain": "full_cue_id",
+      "min": 10900,
+      "max": 10999,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz associada a uma troca. O contexto específico não é determinado por esta faixa de Cue IDs."
+    },
+    {
+      "key": "shared_ultimate_2010",
+      "label": "Ataque de ultimate compartilhada",
+      "domain": "full_cue_id",
+      "min": 2010000,
+      "max": 2010999,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de golpe de ultimate compartilhada. Esta faixa não determina o nome do golpe nem os participantes."
+    },
+    {
+      "key": "story_attacks_21106",
+      "label": "Ataques / habilidades do modo história",
+      "domain": "full_cue_id",
+      "min": 2110600,
+      "max": 2110699,
+      "only_if_no_prior_rule": true,
+      "provided_on": "2026-10-08",
+      "description": "Voz de ataque ou habilidade do modo história. Esta classificação não determina o nome do golpe ou da habilidade."
+    },
+    {
+      "key": "story_attacks_31106",
+      "label": "Ataques / habilidades do modo história",
+      "description": "Voz de ataque ou habilidade do modo história. Esta classificação não determina o nome do golpe ou da habilidade.",
+      "domain": "full_cue_id",
+      "min": 3110600,
+      "max": 3110699,
+      "only_if_no_prior_rule": true,
+      "source": "cue_family_correlation",
+      "required_name_pattern": "\\d{4}_31_06\\d{2}",
+      "provided_on": "2026-10-08"
+    },
+    {
+      "key": "story_encoded_form",
+      "label": "Ataques / habilidades do modo história",
+      "description": "Voz de ataque ou habilidade do modo história. Esta classificação não determina o nome do golpe ou da habilidade.",
+      "domain": "full_cue_id",
+      "min": 110600,
+      "max": 9910699,
+      "only_if_no_prior_rule": true,
+      "source": "cue_family_correlation",
+      "required_name_pattern": "\\d{4}_\\d{2}_06\\d{2}",
+      "encoded_form": true,
+      "provided_on": "2026-10-08"
+    }
+  ],
+  "descriptions_confirmed_on": "2026-10-08"
+}

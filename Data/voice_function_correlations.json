@@ -1,0 +1,538 @@
+{
+  "schema": 1,
+  "criterion": "At least 100 original banks, >=95% share an original PTN tag; three independent character anchors are revalidated against installed ACB aliases and PatternVoiceData. Broad category only, never a direct playback claim.",
+  "rules": [
+    {
+      "key": "cue_200",
+      "suffix": 200,
+      "tag": "PTN_0000_ATTACK_S",
+      "english": "Light attack",
+      "support": 241,
+      "compared": 241,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0200",
+          "cue_id": 10200,
+          "tag": "PTN_0000_ATTACK_S"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0200",
+          "cue_id": 10200,
+          "tag": "PTN_0000_ATTACK_S"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0200",
+          "cue_id": 10200,
+          "tag": "PTN_0000_ATTACK_S"
+        }
+      ]
+    },
+    {
+      "key": "cue_204",
+      "suffix": 204,
+      "tag": "PTN_0010_ATTACK_M",
+      "english": "Medium attack",
+      "support": 239,
+      "compared": 239,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0204",
+          "cue_id": 10204,
+          "tag": "PTN_0010_ATTACK_M"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0204",
+          "cue_id": 10204,
+          "tag": "PTN_0010_ATTACK_M"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0204",
+          "cue_id": 10204,
+          "tag": "PTN_0010_ATTACK_M"
+        }
+      ]
+    },
+    {
+      "key": "cue_205",
+      "suffix": 205,
+      "tag": "PTN_0010_ATTACK_M",
+      "english": "Medium attack",
+      "support": 241,
+      "compared": 241,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0205",
+          "cue_id": 10205,
+          "tag": "PTN_0010_ATTACK_M"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0205",
+          "cue_id": 10205,
+          "tag": "PTN_0010_ATTACK_M"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0205",
+          "cue_id": 10205,
+          "tag": "PTN_0010_ATTACK_M"
+        }
+      ]
+    },
+    {
+      "key": "cue_212",
+      "suffix": 212,
+      "tag": "PTN_0025_BUKUKYAKU",
+      "english": "Bukukyaku attack",
+      "support": 242,
+      "compared": 242,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0212",
+          "cue_id": 10212,
+          "tag": "PTN_0025_BUKUKYAKU"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0212",
+          "cue_id": 10212,
+          "tag": "PTN_0025_BUKUKYAKU"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0212",
+          "cue_id": 10212,
+          "tag": "PTN_0025_BUKUKYAKU"
+        }
+      ]
+    },
+    {
+      "key": "cue_231",
+      "suffix": 231,
+      "tag": "PTN_0810_THROW",
+      "english": "Throw / grab",
+      "support": 241,
+      "compared": 241,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0231",
+          "cue_id": 10231,
+          "tag": "PTN_0810_THROW"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0231",
+          "cue_id": 10231,
+          "tag": "PTN_0810_THROW"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0231",
+          "cue_id": 10231,
+          "tag": "PTN_0810_THROW"
+        }
+      ]
+    },
+    {
+      "key": "cue_261",
+      "suffix": 261,
+      "tag": "PTN_0530_DRAGON_HOMING",
+      "english": "Dragon homing",
+      "support": 240,
+      "compared": 240,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0261",
+          "cue_id": 10261,
+          "tag": "PTN_0530_DRAGON_HOMING"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0261",
+          "cue_id": 10261,
+          "tag": "PTN_0530_DRAGON_HOMING"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0261",
+          "cue_id": 10261,
+          "tag": "PTN_0530_DRAGON_HOMING"
+        }
+      ]
+    },
+    {
+      "key": "cue_272",
+      "suffix": 272,
+      "tag": "PTN_0120_DAMAGE_L",
+      "english": "Heavy damage",
+      "support": 242,
+      "compared": 242,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0272",
+          "cue_id": 10272,
+          "tag": "PTN_0120_DAMAGE_L"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0272",
+          "cue_id": 10272,
+          "tag": "PTN_0120_DAMAGE_L"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0272",
+          "cue_id": 10272,
+          "tag": "PTN_0120_DAMAGE_L"
+        }
+      ]
+    },
+    {
+      "key": "cue_273",
+      "suffix": 273,
+      "tag": "PTN_0120_DAMAGE_L",
+      "english": "Heavy damage",
+      "support": 241,
+      "compared": 241,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0273",
+          "cue_id": 10273,
+          "tag": "PTN_0120_DAMAGE_L"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0273",
+          "cue_id": 10273,
+          "tag": "PTN_0120_DAMAGE_L"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0273",
+          "cue_id": 10273,
+          "tag": "PTN_0120_DAMAGE_L"
+        }
+      ]
+    },
+    {
+      "key": "cue_274",
+      "suffix": 274,
+      "tag": "PTN_0125_DAMAGE_BODYBLOW",
+      "english": "Body blow damage",
+      "support": 243,
+      "compared": 243,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0274",
+          "cue_id": 10274,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0274",
+          "cue_id": 10274,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0274",
+          "cue_id": 10274,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        }
+      ]
+    },
+    {
+      "key": "cue_275",
+      "suffix": 275,
+      "tag": "PTN_0125_DAMAGE_BODYBLOW",
+      "english": "Body blow damage",
+      "support": 235,
+      "compared": 235,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0275",
+          "cue_id": 10275,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0275",
+          "cue_id": 10275,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0275",
+          "cue_id": 10275,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        }
+      ]
+    },
+    {
+      "key": "cue_276",
+      "suffix": 276,
+      "tag": "PTN_0125_DAMAGE_BODYBLOW",
+      "english": "Body blow damage",
+      "support": 243,
+      "compared": 243,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0276",
+          "cue_id": 10276,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0276",
+          "cue_id": 10276,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0276",
+          "cue_id": 10276,
+          "tag": "PTN_0125_DAMAGE_BODYBLOW"
+        }
+      ]
+    },
+    {
+      "key": "cue_294",
+      "suffix": 294,
+      "tag": "PTN_1000_DESPERATE",
+      "english": "Death cry / final scream",
+      "support": 242,
+      "compared": 242,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0294",
+          "cue_id": 10294,
+          "tag": "PTN_1000_DESPERATE"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0294",
+          "cue_id": 10294,
+          "tag": "PTN_1000_DESPERATE"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0294",
+          "cue_id": 10294,
+          "tag": "PTN_1000_DESPERATE"
+        }
+      ]
+    },
+    {
+      "key": "cue_295",
+      "suffix": 295,
+      "tag": "PTN_1000_DESPERATE",
+      "english": "Death cry / final scream",
+      "support": 242,
+      "compared": 242,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0295",
+          "cue_id": 10295,
+          "tag": "PTN_1000_DESPERATE"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0295",
+          "cue_id": 10295,
+          "tag": "PTN_1000_DESPERATE"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0295",
+          "cue_id": 10295,
+          "tag": "PTN_1000_DESPERATE"
+        }
+      ]
+    },
+    {
+      "key": "cue_298",
+      "suffix": 298,
+      "tag": "PTN_0610_IMPATIENCE",
+      "english": "Flinch reaction (original tag: IMPATIENCE)",
+      "support": 240,
+      "compared": 240,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0298",
+          "cue_id": 10298,
+          "tag": "PTN_0610_IMPATIENCE"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0298",
+          "cue_id": 10298,
+          "tag": "PTN_0610_IMPATIENCE"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0298",
+          "cue_id": 10298,
+          "tag": "PTN_0610_IMPATIENCE"
+        }
+      ]
+    },
+    {
+      "key": "cue_806",
+      "suffix": 806,
+      "tag": "PTN_7037_IMPACT_SPEED_BATTLE_INFERIORITY",
+      "english": "Speed impact: clash while behind",
+      "support": 241,
+      "compared": 241,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0806",
+          "cue_id": 10806,
+          "tag": "PTN_7037_IMPACT_SPEED_BATTLE_INFERIORITY"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0806",
+          "cue_id": 10806,
+          "tag": "PTN_7037_IMPACT_SPEED_BATTLE_INFERIORITY"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0806",
+          "cue_id": 10806,
+          "tag": "PTN_7037_IMPACT_SPEED_BATTLE_INFERIORITY"
+        }
+      ]
+    },
+    {
+      "key": "cue_818",
+      "suffix": 818,
+      "tag": "PTN_7022_IMPACT_POWER_BATTLE_INFERIORITY",
+      "english": "Power impact: clash while behind",
+      "support": 243,
+      "compared": 243,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0818",
+          "cue_id": 10818,
+          "tag": "PTN_7022_IMPACT_POWER_BATTLE_INFERIORITY"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0818",
+          "cue_id": 10818,
+          "tag": "PTN_7022_IMPACT_POWER_BATTLE_INFERIORITY"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0818",
+          "cue_id": 10818,
+          "tag": "PTN_7022_IMPACT_POWER_BATTLE_INFERIORITY"
+        }
+      ]
+    },
+    {
+      "key": "cue_829",
+      "suffix": 829,
+      "tag": "PTN_7006_IMPACT_BLAST_BATTLE_SUPERIORITY",
+      "english": "Blast impact: clash while ahead",
+      "support": 243,
+      "compared": 243,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0829",
+          "cue_id": 10829,
+          "tag": "PTN_7006_IMPACT_BLAST_BATTLE_SUPERIORITY"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0829",
+          "cue_id": 10829,
+          "tag": "PTN_7006_IMPACT_BLAST_BATTLE_SUPERIORITY"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0829",
+          "cue_id": 10829,
+          "tag": "PTN_7006_IMPACT_BLAST_BATTLE_SUPERIORITY"
+        }
+      ]
+    },
+    {
+      "key": "cue_831",
+      "suffix": 831,
+      "tag": "PTN_7007_IMPACT_BLAST_BATTLE_INFERIORITY",
+      "english": "Blast impact: clash while behind",
+      "support": 243,
+      "compared": 243,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_00_US",
+          "cue_name": "0000_00_0831",
+          "cue_id": 10831,
+          "tag": "PTN_7007_IMPACT_BLAST_BATTLE_INFERIORITY"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0831",
+          "cue_id": 10831,
+          "tag": "PTN_7007_IMPACT_BLAST_BATTLE_INFERIORITY"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0831",
+          "cue_id": 10831,
+          "tag": "PTN_7007_IMPACT_BLAST_BATTLE_INFERIORITY"
+        }
+      ]
+    },
+    {
+      "key": "cue_611",
+      "suffix": 611,
+      "tag": "PTN_6910_EXA2",
+      "english": "Skill 2",
+      "support": 138,
+      "compared": 141,
+      "anchors": [
+        {
+          "bank": "BTLCV_0000_10_US",
+          "cue_name": "0000_10_0611",
+          "cue_id": 10611,
+          "tag": "PTN_6910_EXA2"
+        },
+        {
+          "bank": "BTLCV_0001_42_US",
+          "cue_name": "0001_42_0611",
+          "cue_id": 10611,
+          "tag": "PTN_6910_EXA2"
+        },
+        {
+          "bank": "BTLCV_0002_30_US",
+          "cue_name": "0002_30_0611",
+          "cue_id": 10611,
+          "tag": "PTN_6910_EXA2"
+        }
+      ]
+    }
+  ]
+}

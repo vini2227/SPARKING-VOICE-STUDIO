@@ -1,0 +1,20 @@
+Local audio tools included in Sparking Zero Voice Studio
+
+DeepFilterNet v0.5.6, by Hendrik Schroeter and contributors.
+Source: https://github.com/Rikorose/DeepFilterNet
+Windows release: https://github.com/Rikorose/DeepFilterNet/releases/tag/v0.5.6
+Dual MIT / Apache 2.0; this distribution selects MIT (LICENSE-DeepFilterNet.txt).
+The executable includes its speech enhancement model.
+
+Kim Vocal 2 ONNX separation model, published by the Ultimate Vocal Remover project / Kim.
+Source weights: https://github.com/TRvlvr/model_repo/releases/download/all_public_uvr_models/Kim_Vocal_2.onnx
+Model configuration: Ultimate Vocal Remover GUI mdx_model_data.json.
+Project: https://github.com/Anjok07/ultimatevocalremovergui
+MDX-Net research implementation by KUIELab: https://github.com/kuielab/mdx-net
+MDX-Net software license attached as LICENSE-MDX-Net.txt.
+The attached software licenses do not assert a separate license for model weights.
+Credit to the original model creators. No CapCut code or models are used.
+
+ONNX Runtime 1.23.2 by Microsoft, MIT; its LICENSE and ThirdPartyNotices accompany
+Tools/VoiceAI/PythonDeps/onnxruntime. CPU inference uses the bundled runtime.
+Processing is entirely local. No audio or project contents are uploaded.

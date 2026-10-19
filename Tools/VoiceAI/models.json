@@ -1,0 +1,8 @@
+{
+  "isolation": {
+    "file": "Kim_Vocal_2.onnx",
+    "n_fft": 7680,
+    "dim_f": 3072,
+    "compensate": 1.009
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "utoc_sha256": {
+    "pakchunk0-Windows.utoc": "dc5242441f16908cf9ced5f5c18f14c5c944173c904bbf4e886c9676c8c84212",
+    "pakchunk0optional-Windows.utoc": "21f4a1fe5a35fa517cba2a8d0771105d3613d0a077f597ec4c64eb6bd76e6328",
+    "pakchunk1-Windows.utoc": "44503ae370d06102075c16ac15e9a7ee5b51a84fd7924250c1b91d8542d705f4",
+    "pakchunk1optional-Windows.utoc": "530ddeb3497998bfbfe88056ed91779208f6734effa458164481e664b6c6f3e9",
+    "pakchunk2-Windows.utoc": "d90289ee4d59fea32266d96a9b08433064249c1de660245fc128aa10536136f3",
+    "pakchunk3-Windows.utoc": "5dc69ba118b5ee1aca442e34203209e3d082758dd37357d91bce43a32feae69a",
+    "pakchunk4-Windows.utoc": "300ea391cbb3e0e85162e4eabec36899f93f3cf9332c95a3d56234bb88ea61a9",
+    "pakchunk5-Windows.utoc": "405e95aad97992756b1d45fe9c7ee991cd78f25540f89f57902e40fc83d17e6c",
+    "pakchunk6-Windows.utoc": "a749f0b183cbe35d74e110b20bfae0d78caa20b25bd4058ed6b399786ed426a4",
+    "pakchunk7-Windows.utoc": "f8334ae0b017001aa66649a032f5d18745f1a5ffb0d81cb8847eb782c5c007c4",
+    "pakchunk8-Windows.utoc": "9f1423abbdfee369e40bc6d0998e63a16222274bbc6d088f366923fd0604077e",
+    "pakchunk9-Windows.utoc": "8190d23b458f03a32a67e884ee31ab025970879b337062fb2216be6d07889a82",
+    "pakchunk10-Windows.utoc": "92e6fb8e398ed4e045efd3712ec587b477a11c6dcc9909c738a53f7679c3c363",
+    "pakchunk11-Windows.utoc": "35eceb34305f3c9fa2a860c65dab89d7a76be0cb92f1fa26f3d69c533eba9972",
+    "pakchunk12-Windows.utoc": "29e5ba90927ea80c1b2880b40624351e28f2e5ee94e6281365daacd20776145f",
+    "pakchunk13-Windows.utoc": "8aa9cf7faa1dec7874df00f16ccd0ecfad3652ec2b5b858738f285e6e48f8da6",
+    "pakchunk14-Windows.utoc": "9ef8347c6a1699143f3d536989654d315d880822dc7bc72dd189ba4821eb8429",
+    "pakchunk15-Windows.utoc": "0563356cf2c5ec3d11c44eebc7e5a06468ac6cfb16e4ab92f91babcc8f530bb4",
+    "pakchunk16-Windows.utoc": "2848792f0b1bda50823a2efd7eeadcacb4b4717a51b52c1a7d804e8ba81f0402",
+    "pakchunk17-Windows.utoc": "65a1a79e9eae60ea3b405dd2644fa288a09a6c5ede93baecdcf49c3d0d5ad799"
+  },
+  "purpose": "Version guard for bundled semantic annotations. Names, banks and PatternVoiceData are read live from the installed game."
+}
