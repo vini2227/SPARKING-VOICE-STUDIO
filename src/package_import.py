@@ -9,7 +9,7 @@ def file_hash(path):
         for chunk in iter(lambda:stream.read(1024*1024),b''):digest.update(chunk)
     return digest.hexdigest()
 
-VOICE=re.compile(r'^BTLCV_\d{4}_\d{2}_(US|JP)\.(uasset|uexp|acb|awb)$',re.I)
+VOICE=re.compile(r'^BTLCV_[A-Za-z0-9]+(?:_[A-Za-z0-9]+)*_(US|JP)\.(uasset|uexp|acb|awb)$',re.I)
 
 def safe_entry(name):
     path=PurePosixPath(name.replace('\\','/'))
@@ -125,6 +125,10 @@ def extract(cfg,selected):
         banks.append({'bank_name':name,'asset':str(paths['.uasset']) if '.uasset' in paths else None,
                       'acb':str(paths['.acb']) if '.acb' in paths else None,'uexp':str(paths['.uexp']) if '.uexp' in paths else None,'awb':str(paths['.awb']),
                       'package_origin':{'original_paths':originals,'sha256':digests,'legacy_iostore_plaintext':legacy_plain,'iostore_version':iostore_version,'voice_asset_path':asset_paths.get((name+'.uasset').lower()),'voice_chunk_id':asset_chunk_ids.get((name+'.uasset').lower()),'container_snapshot':{ext:str(p) for ext,p in copied.items()}}})
+    for bank in banks:
+        origin=bank['package_origin']
+        origin['catalog_path']=str(folder/'package_import.json')
+        origin['bank_info']=inspect_pair(bank,cfg)
     core.write_json(folder/'package_import.json',{'original_paths':originals,'sha256':digests,'banks':banks})
     if not banks:raise ValueError('O pacote não contém bancos BTLCV com AWB. Selecione o conjunto de arquivos do mod de voz.')
     return banks
@@ -150,3 +154,75 @@ def loose_pair_origin(cfg,asset,awb):
     matching=[bank for bank in banks if bank['bank_name']==asset.stem and Path(bank['awb']).read_bytes()==awb.read_bytes()]
     if len(matching)!=1:raise ValueError('O AWB selecionado difere do AWB do pacote original desse personagem customizado.')
     return matching[0]['package_origin']
+
+
+def custom_asset_name(name,origin):
+    """Custom identifiers are allowed only with an exact mod asset mount."""
+    if not VOICE.fullmatch(name+'.uasset') or len(name)>120:return False
+    relative=str((origin or {}).get('voice_asset_path') or '')
+    try:safe_entry(relative)
+    except ValueError:return False
+    return relative.startswith('SparkingZERO/Mods/') and PurePosixPath(relative).name==name+'.uasset'
+
+def validate_custom_origin(cfg,asset,awb,origin):
+    if not custom_asset_name(asset.stem,origin):raise ValueError('O pacote original do personagem customizado é necessário para exportar a voz.')
+    toc=(origin.get('container_snapshot') or {}).get('.utoc')
+    if not toc:raise ValueError('O pacote original do personagem customizado é necessário para exportar a voz.')
+    toc=core.owned(toc)
+    if not toc.is_file() or not toc.with_suffix('.ucas').is_file():raise ValueError('O .utoc e o .ucas precisam estar juntos, com o mesmo nome base.')
+    pak=core.Pak(cfg)
+    try:
+        store=native.IoStore(toc,pak);path='../../../'+origin['voice_asset_path']
+        if path not in store.files:raise ValueError('O pacote original do personagem customizado é necessário para exportar a voz.')
+        index=store.files[path]
+        if store.read_chunk(index)!=asset.read_bytes():raise ValueError('O asset selecionado difere do pacote original do personagem.')
+        chunk=store.b[store.ids_pos+index*12:store.ids_pos+(index+1)*12].hex()
+        if chunk!=origin.get('voice_chunk_id'):raise ValueError('O asset selecionado difere do pacote original do personagem.')
+        expected=origin.get('bank_info',{}).get('awb_sha256')
+        if not expected or file_hash(awb)!=expected:raise ValueError('O AWB selecionado difere do AWB do pacote original desse personagem customizado.')
+    finally:pak.f.close()
+
+def inspect_pair(bank,cfg):
+    """Read actual mod metadata, never substitute a current game's ACB."""
+    name=bank['bank_name'];origin=bank['package_origin'];relative=origin.get('voice_asset_path') or ''
+    parent=PurePosixPath(relative).parent
+    custom=relative.startswith('SparkingZERO/Mods/')
+    actor=core.character_id(name)
+    import game_characters
+    label=parent.name if custom else game_characters.bundled(cfg.get('ui_language','en')).get(actor) or actor or name
+    if custom:
+        label=re.sub(r'^\d+_','',label).replace('_',' ')
+        label=re.sub(r'(?<=[a-z])(?=[A-Z])',' ',label)
+    result={'label':label,'group_key':str(parent) if custom else actor or name,'language':name[-2:].upper(),'voice_count':None,'custom_mount':custom,'awb_sha256':file_hash(bank['awb'])}
+    if not bank.get('asset') and not bank.get('acb'):return result
+    try:
+        data=Path(bank.get('uexp') or bank.get('acb') or bank['asset']).read_bytes()
+        at=data.index(b'@UTF');root=core.UTF(data,at);acb=data[at:at+root.size];root=core.UTF(acb)
+        waveform=root.child('WaveformTable')
+        if waveform is None:raise ValueError('Banco antigo sem tabela de cues ou de áudio.')
+        stream=core.Awb(Path(bank['awb']).read_bytes());blob=root.rows[0].get('AwbFile');memory=core.Awb(acb[blob[0]:blob[0]+blob[1]]) if blob and blob[1] else None
+        expected={r['StreamAwbId'] for r in waveform.rows if r['Streaming']}
+        if set(stream.ids)!=expected or len(stream.ids)!=len(expected):raise ValueError('Os IDs do AWB não correspondem às faixas do ACB antigo.')
+        import bank_migration
+        identities=set()
+        for row in waveform.rows:
+            streamed=bool(row['Streaming']);aid=row['StreamAwbId'] if streamed else row['MemoryAwbId'];archive=stream if streamed else memory
+            if archive is None or aid not in archive.entries:raise ValueError('Faixa ausente no AWB antigo.')
+            bank_migration.hca_format(archive.entries[aid]);identities.add((streamed,aid))
+        result['voice_count']=len(identities);table=root.child('StreamAwbHash')
+        if table:
+            pos,size=table.rows[0]['Hash'];result['stale_hash']=acb[pos:pos+size]!=hashlib.md5(stream.b).digest()
+        result['structure_verified']=True
+    except (OSError,ValueError,KeyError,IndexError,TypeError,AttributeError) as error:result['error']=str(error)
+    return result
+
+def catalog(owner):
+    bank=getattr(owner,'bank',None)
+    origin=((bank.source or {}).get('package_origin') or {}) if bank and bank.external else {}
+    path=origin.get('catalog_path')
+    if path:
+        try:
+            data=json.loads(core.owned(path).read_text(encoding='utf-8'))
+            if isinstance(data.get('banks'),list):return data['banks']
+        except (OSError,ValueError,TypeError):pass
+    return getattr(owner,'_package_banks',[])

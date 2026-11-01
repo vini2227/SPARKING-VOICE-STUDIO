@@ -17,8 +17,7 @@ def materialize(bank,project,replacements,gains=None,variations=None,keep_import
     except (OSError,ValueError):prior={}
     previous={row['key']:row for row in prior.get('voices',[])}
     rows=[];bank_hash=hashlib.sha256(bank.acb+bank.stream_bytes).hexdigest()
-    for row in bank.rows:
-        if edited_only and not is_edited(bank,row,replacements):continue
+    def render_row(row):
         key=row['key'];source=replacements.get(key)
         action='replace' if source else 'preserve' if core.preserve_unreplaced(bank,row,keep_imported) else 'silence'
         gain=gains.get(key,0.0) if source else 0.0;variation=variations.get(key,1) if source else 1
@@ -34,10 +33,9 @@ def materialize(bank,project,replacements,gains=None,variations=None,keep_import
             try:
                 if source:core.normalize_wav(source,pending,row['rate'],row['channels'],row['samples'],gain,variation)
                 elif action=='preserve':
-                    with io_lock or nullcontext():
-                        original=bank.original(row)
-                        # Decoded imported audio is preserved exactly, with no resampling.
-                        pending.write_bytes(original.read_bytes())
+                    # Bank.original protects each cache path independently.
+                    original=bank.original(row)
+                    pending.write_bytes(original.read_bytes())
                 else:core.silent_wav(pending,row)
                 os.replace(pending,output)
             finally:pending.unlink(missing_ok=True)
@@ -49,7 +47,9 @@ def materialize(bank,project,replacements,gains=None,variations=None,keep_import
             'function_descriptions_en':list(row['english']),'action':action,'gain_db':gain,'variation':variation,
             'samples':samples,'sample_rate':rate,'channels':channels,'duration':samples/rate,'fingerprint':fingerprint}
         if old!=metadata or not sidecar.is_file():core.write_json(sidecar,metadata)
-        rows.append(metadata)
+        return metadata
+    selected=[row for row in bank.rows if not edited_only or is_edited(bank,row,replacements)]
+    rows=core.cpu_jobs.map_ordered(render_row,selected,bank.cfg)
     if edited_only:
         current={row['filename'] for row in rows}
         for old in previous.values():

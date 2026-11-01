@@ -140,12 +140,12 @@ def create_project(old,target,report,progress=lambda text:None,project_name=None
     folder=project_names.project_folder(project_name)
     replacements={};work=folder/'Replacements';work.mkdir(parents=True,exist_ok=False)
     matched=[r for r in report['rows'] if r['status']=='matched']
-    for i,item in enumerate(matched):
-        progress(f'{i+1}/{len(matched)}')
+    def migrate(item):
         source=old.original(old.wave_rows[item['source_key']]);row=target.wave_rows[item['target_key']]
         destination=work/(row['key']+'.wav')
         core.normalize_wav(source,destination,row['rate'],row['channels'],row['samples'])
-        replacements[row['key']]=str(destination)
+        return row['key'],str(destination)
+    replacements=dict(core.cpu_jobs.map_ordered(migrate,matched,target.cfg,lambda done,total,item:progress(f'{done}/{total}')))
     core.write_json(folder/'migration_report.json',report)
     import bank_version
     project={'schema':6,'bank_reference':bank_version.snapshot(target),'bank':target.name,'source':None,'project_name':project_name,'project_id':project_names.project_parts(folder)['id'],

@@ -6,6 +6,7 @@ import numpy as np
 import audio_levels
 import audio_variations
 import audio_format_verification
+import cpu_jobs
 from package_key import encryption_key
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
@@ -13,7 +14,7 @@ APP = Path(__file__).resolve().parent.parent
 CREATE_NO_WINDOW = 0x08000000
 MAIN_HCA_KEY = 13238534807163085345
 SILENCE_DURATION = 0.5
-DEFAULTS = {"project":"", "game":"", "pak_key_file":"", "unreal_editor":"", "ui_language":"en", "function_language":"en", "voice_text_language":"en"}
+DEFAULTS = {"project":"", "game":"", "pak_key_file":"", "unreal_editor":"", "ui_language":"en", "function_language":"en", "voice_text_language":"en", "cpu_mode":"auto"}
 def character_names(cfg=None,language='pt'):
     """Read official names for the requested game language; no worksheet guessing."""
     import game_characters
@@ -50,8 +51,9 @@ def write_json(path, obj):
                     time.sleep(.02*(attempt+1))
     finally:tmp.unlink(missing_ok=True)
 def run(args, cwd=None):
-    p=subprocess.run([str(x) for x in args],cwd=str(owned(cwd or APP)),
-        capture_output=True,creationflags=CREATE_NO_WINDOW,timeout=180)
+    args,options=cpu_jobs.subprocess_options(args)
+    p=subprocess.run(args,cwd=str(owned(cwd or APP)),
+        capture_output=True,creationflags=CREATE_NO_WINDOW,timeout=180,**options)
     if p.returncode: raise RuntimeError((p.stderr+p.stdout).decode("utf-8","replace")[-2500:])
     return p
 def be(b,p,n): return int.from_bytes(b[p:p+n],"big")
@@ -712,8 +714,7 @@ def import_external_bank(cfg,asset,awb,acb=None,uexp=None,bank_name=None,package
                 return import_external_bank(cfg,companion,awb,acb)
         return import_acb_bank(cfg,acb,awb,bank_name)
     asset=Path(asset).resolve();name=asset.stem
-    if not re.fullmatch(r"BTLCV_[0-9]{4}_[0-9]{2}_(JP|US)",name):
-        raise ValueError("Selecione o asset com o nome original BTLCV_####_##_JP ou _US.")
+    standard_name=bool(re.fullmatch(r"BTLCV_[0-9]{4}_[0-9]{2}_(JP|US)",name))
     files={"asset":asset,"awb":Path(awb).resolve()}
     companion=Path(uexp).resolve() if uexp else asset.with_suffix(".uexp")
     if companion.exists():files["uexp"]=companion
@@ -722,6 +723,9 @@ def import_external_bank(cfg,asset,awb,acb=None,uexp=None,bank_name=None,package
     if package_origin is None and asset.parent.exists():
         import package_import
         package_origin=package_import.loose_pair_origin(cfg,asset,files['awb'])
+    if not standard_name:
+        import package_import
+        package_import.validate_custom_origin(cfg,asset,files['awb'],package_origin or {})
     inline=False
     if "uexp" not in payloads and payloads["asset"][:4]==b"\xc1\x83\x2a\x9e":
         header,summary=cooked_summary(payloads["asset"])
@@ -1081,31 +1085,32 @@ def _export_bank(bank,replacements,progress=lambda s:None,make_package=True,dest
     if operation is not None:operation.work_dir=out
     streams=dict(bank.stream.entries);mem=dict(bank.memory.entries) if bank.memory else {}
     preserve_imported=bool(bank.external) if preserve_imported is None else bool(preserve_imported)
-    report=[];encoded_cache={};sample_counts={}
-    for i,row in enumerate(bank.rows):
-        progress(f'Convertendo {i+1}/{len(bank.rows)}: {row["filename"]}')
+    report=[];encoded_cache=cpu_jobs.SingleFlight();sample_counts={}
+    def convert_row(row):
+        if operation is not None:operation.checkpoint()
         source=replacements.get(row["key"])
         wav=work/(row["key"]+".wav");hca=work/(row["key"]+".hca")
         if not source and preserve_unreplaced(bank,row,preserve_imported):
             original_payload=(bank.stream if row["streaming"] else bank.memory).entries[row["id"]]
             audio_format_verification.hca_format(original_payload,row,tolerance=1)
-            sample_counts[row["key"]]=row["samples"]
-            report.append({**row,"export_samples":row["samples"],"export_duration":row["duration"],"replacement":None,"action":"keep_imported" if bank.external else "keep_original"})
-            continue
+            return row,None,row["samples"],{**row,"export_samples":row["samples"],"export_duration":row["duration"],"replacement":None,"action":"keep_imported" if bank.external else "keep_original"}
         if source:normalize_wav(source,wav,row["rate"],row["channels"],row["samples"],gains.get(row["key"],0.0),variations.get(row["key"],1))
         else:silent_wav(wav,row)
-        sample_counts[row["key"]]=audio_format_verification.wav_format(wav,row)[2]
+        samples=audio_format_verification.wav_format(wav,row)[2]
         awb=bank.stream if row["streaming"] else bank.memory
         fingerprint=(hashlib.sha256(wav.read_bytes()).hexdigest(),awb.key)
-        if fingerprint in encoded_cache:payload=encoded_cache[fingerprint]
-        else:
+        def encode():
             run([APP/"Tools/VGAudioCli.exe",wav,hca,"--keycode",str(awb.key),"--no-loop"],work)
             if not hca.exists():raise RuntimeError("O encoder não produziu o HCA.")
-            payload=hca.read_bytes();encoded_cache[fingerprint]=payload
-        audio_format_verification.hca_format(payload,row,sample_counts[row["key"]])
-        hca.write_bytes(payload)
-        (streams if row["streaming"] else mem)[row["id"]]=payload
-        report.append({**row,"export_samples":sample_counts[row["key"]],"export_duration":sample_counts[row["key"]]/row["rate"],"replacement":str(source) if source else None,"gain_db":gains.get(row["key"],0.0) if source else 0.0,"variation":variations.get(row["key"],1) if source else 1,"action":"replace" if source else "silence"})
+            return hca.read_bytes()
+        payload=encoded_cache.get(fingerprint,encode)
+        audio_format_verification.hca_format(payload,row,samples);hca.write_bytes(payload)
+        return row,payload,samples,{**row,"export_samples":samples,"export_duration":samples/row["rate"],"replacement":str(source) if source else None,"gain_db":gains.get(row["key"],0.0) if source else 0.0,"variation":variations.get(row["key"],1) if source else 1,"action":"replace" if source else "silence"}
+    # Workers own distinct WAV/HCA paths. Only this coordinator assembles the bank.
+    def converted(done,total,row):progress(f'Convertendo {done}/{total}: {row["filename"]}')
+    for row,payload,samples,entry in cpu_jobs.map_ordered(convert_row,bank.rows,bank.cfg,converted,operation.checkpoint if operation is not None else None):
+        sample_counts[row["key"]]=samples;report.append(entry)
+        if payload is not None:(streams if row["streaming"] else mem)[row["id"]]=payload
     newawb=bank.stream.rebuild(streams)
     acb=bytearray(bank.acb)
     if bank.memory:

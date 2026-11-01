@@ -7,7 +7,7 @@ class Cancelled(Exception):pass
 class Operation:
     def __init__(self,emit):
         self.emit=emit;self.requested=threading.Event();self.lock=threading.Lock()
-        self.cancellable=True;self.started=time.monotonic();self.work_dir=None
+        self.cancellable=True;self.started=time.monotonic();self.work_dir=None;self.last_progress=0.0
     def cancel(self):
         with self.lock:
             if not self.cancellable:return False
@@ -15,7 +15,10 @@ class Operation:
     def checkpoint(self):
         if self.requested.is_set():raise Cancelled('Exportação cancelada. Nenhum arquivo foi publicado.')
     def report(self,text):
-        self.checkpoint();self.emit(str(text),self.cancellable)
+        self.checkpoint()
+        now=time.monotonic();match=re.match(r'Convertendo (\d+)/(\d+):',str(text))
+        if match and match[1]!=match[2] and now-self.last_progress<.08:return
+        self.last_progress=now;self.emit(str(text),self.cancellable)
     def begin_publish(self):
         with self.lock:
             self.checkpoint();self.cancellable=False

@@ -13,9 +13,10 @@ def tool(name):
     return path
 
 def run(arguments,timeout):
+    arguments,options=core.cpu_jobs.subprocess_options(arguments)
     try:
-        result=subprocess.run([str(value) for value in arguments],capture_output=True,
-            creationflags=core.CREATE_NO_WINDOW,timeout=timeout)
+        result=subprocess.run(arguments,capture_output=True,
+            creationflags=core.CREATE_NO_WINDOW,timeout=timeout,**options)
     except subprocess.TimeoutExpired as error:raise ValueError('A leitura do vídeo demorou demais. Tente um arquivo menor.') from error
     if result.returncode:raise ValueError('Não foi possível ler o áudio deste arquivo. Ele pode estar corrompido ou usar um codec não suportado.')
     return result.stdout

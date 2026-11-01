@@ -13,17 +13,16 @@ def classify(project, bank):
     originals = {}
     if not project or not project.get('migration') or bank.external:
         return originals
-    for key, source in project.get('replacements', {}).items():
-        row = bank.wave_rows.get(key)
-        if row is None:
-            continue
+    def compare(item):
+        key,source=item;row=bank.wave_rows.get(key)
+        if row is None:return None
         try:
-            before = stamp(source)
-            if core.same_pcm(source, bank.original(row)) and stamp(source) == before:
-                originals[key] = before
-        except (OSError, ValueError, RuntimeError, EOFError, wave.Error):
-            # An unavailable comparison never hides a possible replacement.
-            continue
+            before=stamp(source)
+            if core.same_pcm(source,bank.original(row)) and stamp(source)==before:return key,before
+        except (OSError,ValueError,RuntimeError,EOFError,wave.Error):pass
+        return None
+    decisions=core.cpu_jobs.map_ordered(compare,project.get('replacements',{}).items(),getattr(bank,'cfg',None))
+    originals=dict(item for item in decisions if item is not None)
     return originals
 
 def is_original(owner, key):

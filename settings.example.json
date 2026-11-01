@@ -1,1 +1,10 @@
-{"project":"","game":"","pak_key_file":"","unreal_editor":"","ui_language":"en","function_language":"en","voice_text_language":"en"}
+{
+  "project": "",
+  "game": "",
+  "pak_key_file": "",
+  "unreal_editor": "",
+  "ui_language": "en",
+  "function_language": "en",
+  "voice_text_language": "en",
+  "cpu_mode": "auto"
+}

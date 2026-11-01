@@ -39,7 +39,7 @@ def build():
   name='README_'+lang+'.md';(folder/name).write_text(item['text'],encoding='utf-8');links.append('- ['+item['name']+'](../Readme/'+name+')')
  (root/'docs/USER_GUIDES.md').write_text('# User guides\n\n'+'\n'.join(links)+'\n',encoding='utf-8')
  (root/'tests').mkdir()
- for name in ('test_release_update.py','test_legacy_projects.py'):shutil.copy2(APP/'tests'/name,root/'tests'/name)
+ for name in ('test_release_update.py','test_legacy_projects.py','test_cpu_jobs.py','test_package_browser.py'):shutil.copy2(APP/'tests'/name,root/'tests'/name)
  manifest={}
  for path in sorted(root.rglob('*')):
   if not path.is_file():continue

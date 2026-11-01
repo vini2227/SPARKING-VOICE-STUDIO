@@ -6,7 +6,8 @@ import core,project_names,export_delivery
 
 def default_name(owner):
     actor=core.character_id(owner.bank.name)
-    name=owner.character_names.get(actor) or actor or owner.bank.name
+    info=(owner.bank.source or {}).get('package_origin',{}).get('bank_info',{}) if owner.bank.external else {}
+    name=info.get('label') or owner.character_names.get(actor) or actor or owner.bank.name
     name=re.sub(r'[<>:"/\\|?*\x00-\x1f]','-',str(name)).strip().rstrip('. ')[:80]
     try:return project_names.validate(name)
     except ValueError:return owner.bank.name

@@ -50,6 +50,7 @@ def build(studio,box):
     studio.bank_character.trace_add('write',schedule);studio.bank_code.trace_add('write',schedule);schedule()
 
 def update(studio,bank):
-    studio.bank_character.set(studio.character_names.get(core.character_id(bank.name)) or core.character_id(bank.name) or bank.name)
+    info=(bank.source or {}).get('package_origin',{}).get('bank_info',{}) if bank.external else {}
+    studio.bank_character.set(info.get('label') or studio.character_names.get(core.character_id(bank.name)) or core.character_id(bank.name) or bank.name)
     studio.bank_code.set(bank.name+(' • '+studio.tr('Importada') if bank.external else ''))
     if hasattr(studio,'summary_flow'):studio.summary_flow.schedule()

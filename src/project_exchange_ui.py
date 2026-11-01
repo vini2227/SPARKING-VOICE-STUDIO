@@ -20,6 +20,10 @@ class ProjectExchangeMixin:
         for text,fn,needs_bank in [('Compartilhar projeto',self.share_project,True),('Abrir projeto compartilhado',self.import_shared_project,False),('Mesclar projetos neste banco',self.merge_projects,True),('Copiar vozes por tags ou função',self.reuse_voices,True)]:
             button=self.button(body,text,lambda fn=fn:action(fn));button.pack(fill='x',pady=5)
             if needs_bank and not self.bank:button.configure(state='disabled')
+        import package_import
+        banks=package_import.catalog(self)
+        if len(banks)>1:
+            self.button(body,'Personagens do pacote',lambda:action(lambda:self.choose_package_voice(banks))).pack(fill='x',pady=5)
         self.button(body,'Fechar',win.destroy).pack(anchor='e',pady=(16,0))
 
     def share_project(self,destination=None):

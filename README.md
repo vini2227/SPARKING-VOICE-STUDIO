@@ -19,12 +19,17 @@ Windows desktop editor for DRAGON BALL: Sparking! ZERO voice banks, with Custom 
 ## Features
 
 - English/Japanese bank browsing, localized character names and cue/function/interaction filtering.
+- Multi-character mod packages with searchable character/folder groups, US/JP selection and voice counts. [Package workflow](docs/MULTI_CHARACTER_PACKAGES.md).
 - Original/edited playback, media import, microphone recording, trimming and volume controls.
 - Pitch-preserving speed changes, effects, clipping protection and optional local voice enhancement/isolation.
 - Duplicate recording identification that survives derived edits when the input has been preserved.
 - Project saves, session undo/redo, automatic recovery and portable project sharing.
 - Custom and Replacer exports, original per-voice sample rates/channels and PCM16 encoder inputs.
 - Interface, help and user guides in 16 languages.
+
+## Performance
+
+Audio batches can use multiple CPU workers. Select Automatic, Economy, Fast or Sequential in Settings. [Performance and fallback behavior](docs/PERFORMANCE.md).
 
 ## Install and update
 
@@ -68,3 +73,7 @@ The original application source code is licensed under [GNU GPL version 3](LICEN
 Game assets and proprietary tools are not relicensed or included in this repository. Downloadable application packages are distributed separately through GitHub Releases.
 
 See [contributing](CONTRIBUTING.md) and [changelog](CHANGELOG.md).
+
+## Malwarebytes review
+
+Malwarebytes staff whitelisted the launcher reported as MachineLearning/Anomalous.100%. [Official response](https://forums.malwarebytes.com/topic/341415-false-positive-sparking-zero-voice-studioexe-machinelearninganomalous/#findComment-1766947). This applies to executable SHA-256 `828788f5f3331327cadd073a726aa969215b4970b1ce061ace9dd671d0a7d9f8`, preserved in the 2026.11.01 reviewed ZIP. Update Malwarebytes before rescanning. It is not a guarantee about every antivirus or future build.

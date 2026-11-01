@@ -764,6 +764,8 @@ class Studio(AudioTrimMixin,ReuseVoicesMixin,VideoAudioMixin,ProjectExchangeMixi
         parent=parent or self
         def open_bank(external):
             external=dict(external)
+            error=external.get('package_origin',{}).get('bank_info',{}).get('error')
+            if error:self.fail(error);return
             if not external['asset'] and not external['acb']:
                 messagebox.showinfo(self.tr('Pacote de voz'),self.tr('O pacote contém apenas o AWB. Selecione o UASSET/ACB da mesma versão; o app não usará o banco atual como substituto.'),parent=parent)
                 chosen=filedialog.askopenfilename(parent=parent,title=self.tr('Selecione o UASSET/ACB antigo correspondente'),filetypes=[(self.tr('Voz Unreal ou CRI'),('*.uasset','*.acb'))])
@@ -773,21 +775,12 @@ class Studio(AudioTrimMixin,ReuseVoicesMixin,VideoAudioMixin,ProjectExchangeMixi
             if on_source:on_source(external)
             elif migrate:self.prepare_migration(external)
             else:self.load_bank(external['bank_name'],external=external)
-        if len(banks)==1:open_bank(banks[0]);return
-        win=tk.Toplevel(parent);win.title(self.tr('Escolha o banco do pacote'));win.configure(bg=BG);win.geometry('550x190')
-        if on_source:win.transient(parent);win.grab_set()
-        self.label(win,'Escolha o banco de voz que deseja abrir.').pack(anchor='w',padx=20,pady=(18,10))
-        names=[bank['bank_name'] for bank in banks];selected=tk.StringVar(value=names[0])
-        ttk.Combobox(win,textvariable=selected,values=names,state='readonly').pack(fill='x',padx=20)
-        def confirm():
-            bank=banks[names.index(selected.get())];win.destroy()
-            if on_source and parent.winfo_exists():parent.grab_set()
-            open_bank(bank)
-        def cancel():
-            win.destroy()
-            if on_source and parent.winfo_exists():parent.grab_set()
-        win.protocol('WM_DELETE_WINDOW',cancel)
-        self.button(win,'Abrir banco',confirm,True).pack(anchor='e',padx=20,pady=18)
+        if len(banks)==1:
+            if not migrate and on_source is None:self._package_banks=banks
+            open_bank(banks[0]);return
+        if not migrate and on_source is None:self._package_banks=banks
+        import package_browser
+        package_browser.show(self,banks,open_bank,parent)
     def load_bank(self,name,project=None,external=None):
         if self.busy or not self.confirm_leaving_project():return
         self.stop()
@@ -830,6 +823,7 @@ class Studio(AudioTrimMixin,ReuseVoicesMixin,VideoAudioMixin,ProjectExchangeMixi
             if project and project.get("_recovery_path"):
                 self.recovery.consumed=Path(project["_recovery_path"])
             self.export_name.set(project.get("export_name",bank.name) if project else bank.name)
+            if not project and bank.external and (bank.source or {}).get("package_origin",{}).get("bank_info",{}).get("custom_mount"):self.export_mode.set("package")
             self.replacements=dict(project.get("replacements",{})) if project else {}
             self.trim_originals=trim_history.active(project.get("trim_originals",{}),self.replacements) if project else {}
             self.processing_originals=trim_history.active(project.get("processing_originals",{}),self.replacements) if project else {}
@@ -842,7 +836,8 @@ class Studio(AudioTrimMixin,ReuseVoicesMixin,VideoAudioMixin,ProjectExchangeMixi
 
             self.project_temporary=not bool(project) or bool(project.get("temporary_session"))
             self.project=Path(project["project_file"]).parent if project else core.owned(core.APP/"Cache/Sessions"/uuid.uuid4().hex)
-            self.project_name=(project.get("project_name") or name) if project else name
+            mod_label=(bank.source or {}).get("package_origin",{}).get("bank_info",{}).get("label") if bank.external else None
+            self.project_name=(project.get("project_name") or name) if project else (mod_label or name)
             self.project_id=project.get("project_id") if project else None
             self.replacer_folder_name=str(project.get("replacer_folder_name") or "") if project else ""
             self.project_usage_count=recent_projects.usage_count(project or {})+1
@@ -1414,6 +1409,11 @@ class Studio(AudioTrimMixin,ReuseVoicesMixin,VideoAudioMixin,ProjectExchangeMixi
         self.language_choice=ttk.Combobox(body,textvariable=selected_language,values=list(LANGUAGES.values()),state="readonly")
         self.language_choice.pack(fill="x",padx=20)
         self.label(body,"Nomes dos personagens seguem o idioma do app; Cue IDs e tags técnicas permanecem originais.",style="Muted.TLabel",wraplength=710).pack(anchor="w",padx=20,pady=(5,0))
+        self.label(body,"Processamento de áudio").pack(anchor="w",padx=20,pady=(16,4))
+        cpu_mode=tk.StringVar(value=self.cfg.get('cpu_mode','auto'))
+        self.cpu_mode_choice=self.choice(body,cpu_mode,list(core.cpu_jobs.MODES),width=28)
+        self.cpu_mode_choice.pack(fill="x",padx=20)
+        self.label(body,"Automático equilibra velocidade e memória. Sequencial usa uma tarefa por vez.",style="Muted.TLabel",wraplength=710).pack(anchor="w",padx=20,pady=(5,0))
         self.label(body,"Vozes não substituídas").pack(anchor="w",padx=20,pady=(16,4))
         policy=tk.StringVar(value="original" if self.keep_imported.get() else "mute")
         self.unreplaced_policy_choice=policy
@@ -1460,6 +1460,7 @@ class Studio(AudioTrimMixin,ReuseVoicesMixin,VideoAudioMixin,ProjectExchangeMixi
                         support_report.show(self,str(error),parent=win,title=self.tr('Configuração'));return
             language=next(key for key,value in LANGUAGES.items() if value==selected_language.get())
             policy_changed=self.keep_imported.get()!=(policy.get()=="original")
+            cfg["cpu_mode"]=cpu_mode.get()
             cfg["unreplaced_policy"]=policy.get()
             cfg["ui_language"]=language;cfg["function_language"]=language;changed=cfg["project"]!=self.cfg["project"]
             references_changed=any(cfg[key]!=self.cfg[key] for key in ("project","game"))
